@@ -292,10 +292,31 @@ async function init() {
 
 init();
 
-// ─── Service Worker Registration ─────────────────────────────────────────────
+// ─── Service Worker Registration & Auto-Update ────────────────────────────────
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch((err) => {
+    // SW が更新された（controller が切り替わった）瞬間にページをリロード
+    // → skipWaiting + clients.claim と組み合わせて「自動アップデート」を実現
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        console.info('[SW] 新しいバージョンが有効になりました。リロードします…');
+        window.location.reload();
+    });
+
+    navigator.serviceWorker.register('/sw.js').then((registration) => {
+        // 既に SW が有効な場合もアップデートを定期チェック
+        registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            if (!newWorker) return;
+
+            newWorker.addEventListener('statechange', () => {
+                // installed = ダウンロード完了。skipWaiting が呼ばれ
+                // activate → clients.claim → controllerchange → reload の流れに繋がる
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    console.info('[SW] 新しいバージョンをインストールしました。切り替え中…');
+                }
+            });
+        });
+    }).catch((err) => {
         console.warn('SW registration failed:', err);
     });
 }
