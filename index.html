@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f0f13" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="VideoLib" />
+    <meta name="description" content="ローカル動画をブラウザで管理・再生するプライベートライブラリ" />
+
+    <title>Local Video Library</title>
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icons/icon.svg" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+    <header class="app-header">
+        <div class="header-inner">
+            <div class="header-title">
+                <svg class="header-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M10 9l5 3-5 3V9z" fill="currentColor" />
+                </svg>
+                <span>VideoLib</span>
+            </div>
+            <button id="add-btn" class="add-btn" aria-label="動画を追加">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="gallery-container">
+        <div id="gallery" class="gallery" role="list"></div>
+        <div id="empty-state" class="empty-state" hidden>
+            <div class="empty-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="10" width="56" height="44" rx="8" stroke="currentColor" stroke-width="2" />
+                    <path d="M26 22l16 10-16 10V22z" fill="currentColor" opacity="0.3" />
+                </svg>
+            </div>
+            <p class="empty-title">動画がありません</p>
+            <p class="empty-subtitle">右上の ＋ ボタンから動画を追加してください</p>
+        </div>
+    </main>
+
+    <!-- ローディング：追加処理中 -->
+    <div id="loading-overlay" class="loading-overlay" hidden aria-live="polite">
+        <div class="loading-card">
+            <div class="spinner"></div>
+            <p id="loading-text">サムネイルを生成中…</p>
+        </div>
+    </div>
+
+    <!-- 動画再生オーバーレイ -->
+    <div id="player-overlay" class="player-overlay" hidden>
+        <div class="player-backdrop"></div>
+        <div class="player-wrapper">
+            <button id="player-close" class="player-close" aria-label="閉じる">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+            <video id="player-video" class="player-video" controls autoplay playsinline></video>
+        </div>
+    </div>
+
+    <!-- 不可視ファイルインプット -->
+    <input id="file-input" type="file" accept="video/*" multiple hidden />
+
+    <!-- Toast 通知 -->
+    <div id="toast" class="toast" aria-live="assertive"></div>
+
+    <!-- idb ライブラリ (ESM CDN) -->
+    <script type="module" src="/app.js"></script>
+</body>
+
+</html>

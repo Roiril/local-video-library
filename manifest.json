@@ -1,0 +1,18 @@
+{
+    "name": "Local Video Library",
+    "short_name": "VideoLib",
+    "description": "ローカル動画をブラウザで管理・再生するプライベートライブラリ",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#0f0f13",
+    "theme_color": "#0f0f13",
+    "icons": [
+        {
+            "src": "icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}
