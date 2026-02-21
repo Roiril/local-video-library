@@ -1,0 +1,21 @@
+<!-- Maskable icon — content lives within the central 80% safe zone -->
+<!-- Full 512x512 with solid background, content inset to avoid cropping -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Full bleed background (maskable icons use the whole area) -->
+  <rect width="512" height="512" fill="#2b2623"/>
+  <!-- Content inset ~15% from each edge for safe-zone (approx 77px) -->
+  <!-- Film frame - safe zone: 77..435 -->
+  <rect x="90" y="162" width="332" height="220" rx="28" fill="none" stroke="#c4704f" stroke-width="19"/>
+  <!-- Sprocket holes left -->
+  <rect x="97" y="179" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="97" y="228" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="97" y="277" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="97" y="326" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <!-- Sprocket holes right -->
+  <rect x="398" y="179" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="398" y="228" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="398" y="277" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="398" y="326" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <!-- Play triangle -->
+  <path d="M218 222l120 70-120 70V222z" fill="#c4704f"/>
+</svg>

@@ -1,0 +1,18 @@
+<!-- Apple touch icon — 180x180 equivalent, no rounding (iOS applies it) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <rect width="180" height="180" fill="#2b2623"/>
+  <!-- Film frame -->
+  <rect x="22" y="46" width="136" height="98" rx="12" fill="none" stroke="#c4704f" stroke-width="8"/>
+  <!-- Sprocket holes left -->
+  <rect x="27" y="55"  width="7" height="11" rx="2" fill="#c4704f" opacity="0.55"/>
+  <rect x="27" y="79"  width="7" height="11" rx="2" fill="#c4704f" opacity="0.55"/>
+  <rect x="27" y="103" width="7" height="11" rx="2" fill="#c4704f" opacity="0.55"/>
+  <rect x="27" y="127" width="7" height="11" rx="2" fill="#c4704f" opacity="0.55"/>
+  <!-- Sprocket holes right -->
+  <rect x="146" y="55"  width="7" height="11" rx="2" fill="#c4704f" opacity="0.55"/>
+  <rect x="146" y="79"  width="7" height="11" rx="2" fill="#c4704f" opacity="0.55"/>
+  <rect x="146" y="103" width="7" height="11" rx="2" fill="#c4704f" opacity="0.55"/>
+  <rect x="146" y="127" width="7" height="11" rx="2" fill="#c4704f" opacity="0.55"/>
+  <!-- Play triangle -->
+  <path d="M72 73l44 22-44 22V73z" fill="#c4704f"/>
+</svg>
