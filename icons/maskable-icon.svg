@@ -3,19 +3,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <!-- Full bleed background (maskable icons use the whole area) -->
   <rect width="512" height="512" fill="#2b2623"/>
-  <!-- Content inset ~15% from each edge for safe-zone (approx 77px) -->
-  <!-- Film frame - safe zone: 77..435 -->
-  <rect x="90" y="162" width="332" height="220" rx="28" fill="none" stroke="#c4704f" stroke-width="19"/>
-  <!-- Sprocket holes left -->
-  <rect x="97" y="179" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
-  <rect x="97" y="228" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
-  <rect x="97" y="277" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
-  <rect x="97" y="326" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
-  <!-- Sprocket holes right -->
-  <rect x="398" y="179" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
-  <rect x="398" y="228" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
-  <rect x="398" y="277" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
-  <rect x="398" y="326" width="17" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
-  <!-- Play triangle -->
-  <path d="M218 222l120 70-120 70V222z" fill="#c4704f"/>
+  <!-- Content inset to perfectly center layout avoiding circular edge crops -->
+  <!-- Safe Zone is around padding 100 on all sides -->
+  <rect x="106" y="156" width="300" height="200" rx="24" fill="none" stroke="#c4704f" stroke-width="18"/>
+  <rect x="114" y="172" width="16" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="114" y="218" width="16" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="114" y="264" width="16" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="114" y="310" width="16" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  
+  <rect x="382" y="172" width="16" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="382" y="218" width="16" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="382" y="264" width="16" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  <rect x="382" y="310" width="16" height="26" rx="4" fill="#c4704f" opacity="0.5"/>
+  
+  <!-- Play triangle (Left 216, centered to point nicely towards middle) -->
+  <path d="M216 186l120 70-120 70V186z" fill="#c4704f"/>
 </svg>

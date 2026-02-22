@@ -26,10 +26,6 @@ const gallery = document.getElementById('gallery');
 const emptyState = document.getElementById('empty-state');
 const loadingOverlay = document.getElementById('loading-overlay');
 const loadingText = document.getElementById('loading-text');
-const playerOverlay = document.getElementById('player-overlay');
-const playerVideo = document.getElementById('player-video');
-const playerClose = document.getElementById('player-close');
-const playerBackdrop = playerOverlay.querySelector('.player-backdrop');
 const toast = document.getElementById('toast');
 
 // ─── Toast Utility ───────────────────────────────────────────────────────────
@@ -156,7 +152,16 @@ function createGalleryItem(record) {
     // Play on thumbnail click (not delete button)
     li.addEventListener('click', (e) => {
         if (e.target === delBtn || delBtn.contains(e.target)) return;
-        openPlayer(record);
+        if (e.target.tagName.toLowerCase() === 'video') return; // let native controls handle clicks
+
+        const existingVideo = li.querySelector('.inline-player');
+        if (existingVideo) {
+            if (existingVideo.paused) existingVideo.play();
+            else existingVideo.pause();
+            return;
+        }
+
+        openPlayer(record, li, img);
     });
 
     // Delete button
@@ -192,46 +197,35 @@ function updateEmptyState() {
 
 // ─── Video Player ────────────────────────────────────────────────────────────
 
-let currentObjectURL = null;
-
-function openPlayer(record) {
-    // Revoke any previous object URL
-    if (currentObjectURL) {
-        URL.revokeObjectURL(currentObjectURL);
-        currentObjectURL = null;
-    }
+function openPlayer(record, liElement, imgElement) {
+    // Stop and remove any currently playing inline videos
+    document.querySelectorAll('.inline-player').forEach(v => {
+        v.pause();
+        if (v.src) URL.revokeObjectURL(v.src);
+        v.src = '';
+        const prevImg = v.parentElement.querySelector('img');
+        if (prevImg) prevImg.style.display = '';
+        v.remove();
+    });
 
     const blobURL = URL.createObjectURL(record.blob);
-    currentObjectURL = blobURL;
 
-    playerVideo.src = blobURL;
-    playerOverlay.hidden = false;
-    document.body.style.overflow = 'hidden';
+    const video = document.createElement('video');
+    video.className = 'inline-player';
+    video.src = blobURL;
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
 
-    // Autoplay attempt
-    playerVideo.play().catch(() => {
-        // Browser may block autoplay without user gesture; video controls still available
+    video.addEventListener('ended', () => {
+        imgElement.style.display = '';
+        video.remove();
+        URL.revokeObjectURL(blobURL);
     });
+
+    imgElement.style.display = 'none';
+    liElement.insertBefore(video, liElement.firstChild);
 }
-
-function closePlayer() {
-    playerVideo.pause();
-    playerVideo.src = '';
-    playerOverlay.hidden = true;
-    document.body.style.overflow = '';
-
-    if (currentObjectURL) {
-        URL.revokeObjectURL(currentObjectURL);
-        currentObjectURL = null;
-    }
-}
-
-playerClose.addEventListener('click', closePlayer);
-playerBackdrop.addEventListener('click', closePlayer);
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !playerOverlay.hidden) closePlayer();
-});
 
 // ─── File Addition Flow ───────────────────────────────────────────────────────
 

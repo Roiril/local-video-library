@@ -339,75 +339,14 @@ body {
 }
 
 /* ============================================================
-   Player Overlay
+   Inline Player
    ============================================================ */
-.player-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fade-in 0.25s ease;
-}
-
-.player-overlay[hidden] {
-  display: none;
-}
-
-.player-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.92);
-  cursor: pointer;
-}
-
-.player-wrapper {
-  position: relative;
+.inline-player {
   width: 100%;
-  max-width: min(90vw, 960px);
-  max-height: 90dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.player-video {
-  width: 100%;
-  max-height: 90dvh;
   border-radius: var(--radius-md);
   background: #000;
+  display: block;
   outline: none;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8);
-}
-
-.player-close {
-  position: absolute;
-  top: -44px;
-  right: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(6px);
-  color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s var(--ease-spring);
-}
-
-.player-close svg {
-  width: 18px;
-  height: 18px;
-}
-
-.player-close:hover {
-  background: rgba(255, 255, 255, 0.16);
-  transform: scale(1.1);
 }
 
 /* ============================================================

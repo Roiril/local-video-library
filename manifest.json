@@ -1,6 +1,6 @@
 {
-    "name": "Local Video Library",
-    "short_name": "VideoLib",
+    "name": "エンドフレームライブラリ",
+    "short_name": "エンドフレームライブラリ",
     "description": "ローカル動画をブラウザで管理・再生するプライベートライブラリ",
     "start_url": "/",
     "display": "standalone",

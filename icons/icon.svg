@@ -2,18 +2,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <!-- Background -->
   <rect width="512" height="512" fill="#2b2623"/>
-  <!-- Film frame -->
-  <rect x="72" y="152" width="368" height="256" rx="32" fill="none" stroke="#c4704f" stroke-width="22"/>
-  <!-- Film sprocket holes left -->
-  <rect x="80" y="172" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
-  <rect x="80" y="232" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
-  <rect x="80" y="292" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
-  <rect x="80" y="352" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
-  <!-- Film sprocket holes right -->
-  <rect x="412" y="172" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
-  <rect x="412" y="232" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
-  <rect x="412" y="292" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
-  <rect x="412" y="352" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
-  <!-- Play triangle -->
-  <path d="M206 218l144 84-144 84V218z" fill="#c4704f"/>
+  <!-- Film frame vertically and horizontally centered -->
+  <rect x="72" y="128" width="368" height="256" rx="32" fill="none" stroke="#c4704f" stroke-width="22"/>
+  
+  <rect x="80" y="148" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
+  <rect x="80" y="208" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
+  <rect x="80" y="268" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
+  <rect x="80" y="328" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
+  
+  <rect x="412" y="148" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
+  <rect x="412" y="208" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
+  <rect x="412" y="268" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
+  <rect x="412" y="328" width="20" height="32" rx="5" fill="#c4704f" opacity="0.5"/>
+  
+  <!-- Optical center triangle for better display weighting -->
+  <path d="M208 172l144 84-144 84V172z" fill="#c4704f"/>
 </svg>

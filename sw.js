@@ -1,7 +1,7 @@
 // ─── Version ─────────────────────────────────────────────────────────────────
 // ⚠️  デプロイのたびにここをインクリメントする（例: v1 → v2）
 // これが変わるだけで古いキャッシュが全て削除され、最新版が配信される
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME = `video-lib-${CACHE_VERSION}`;
 
 const APP_SHELL = [

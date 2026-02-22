@@ -7,10 +7,10 @@
     <meta name="theme-color" content="#0f0f13" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="VideoLib" />
+    <meta name="apple-mobile-web-app-title" content="エンドフレームライブラリ" />
     <meta name="description" content="ローカル動画をブラウザで管理・再生するプライベートライブラリ" />
 
-    <title>Local Video Library</title>
+    <title>エンドフレームライブラリ</title>
 
     <link rel="manifest" href="/manifest.json" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.svg" />
@@ -26,7 +26,7 @@
                     <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5" />
                     <path d="M10 9l5 3-5 3V9z" fill="currentColor" />
                 </svg>
-                <span>VideoLib</span>
+                <span>エンドフレームライブラリ</span>
             </div>
             <button id="add-btn" class="add-btn" aria-label="動画を追加">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,19 +55,6 @@
         <div class="loading-card">
             <div class="spinner"></div>
             <p id="loading-text">サムネイルを生成中…</p>
-        </div>
-    </div>
-
-    <!-- 動画再生オーバーレイ -->
-    <div id="player-overlay" class="player-overlay" hidden>
-        <div class="player-backdrop"></div>
-        <div class="player-wrapper">
-            <button id="player-close" class="player-close" aria-label="閉じる">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-            </button>
-            <video id="player-video" class="player-video" controls autoplay playsinline></video>
         </div>
     </div>
 
